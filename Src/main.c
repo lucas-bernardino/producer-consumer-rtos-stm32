@@ -2,7 +2,7 @@
 #include "miros.h"
 #include "semaphore.h"
 
-#define BUFFER_SIZE 10
+#define BUFFER_SIZE 5
 
 uint32_t volatile buffer_count = 0;
 uint32_t volatile buffer[BUFFER_SIZE];
@@ -38,13 +38,13 @@ int main() {
 
 void producer() {
 	while (1) {
+		OS_delay(TICKS_PER_SEC * 3U / 2U);
 		sem_wait(&semEmpty);
 
 		sem_wait(&mutex);
-		OS_delay(TICKS_PER_SEC / 2U);
+
 		buffer[buffer_count] = buffer_count;
 		buffer_count++;
-		OS_delay(TICKS_PER_SEC / 2U);
 		sem_post(&mutex);
 
 		sem_post(&semFull);
@@ -55,14 +55,16 @@ void producer() {
 
 void consumer() {
 	while (1) {
+		OS_delay(TICKS_PER_SEC * 3U);
+
 		sem_wait(&semFull);
 
 		sem_wait(&mutex);
-		OS_delay(TICKS_PER_SEC / 2U);
+
 		buffer_count--;
 		consumed_value = buffer[buffer_count];
 		buffer[buffer_count] = 0;
-		OS_delay(TICKS_PER_SEC / 2U);
+		OS_delay(TICKS_PER_SEC * 2U);
 		sem_post(&mutex);
 
 		sem_post(&semEmpty);
