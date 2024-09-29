@@ -11,7 +11,7 @@
 #include <stdbool.h>
 
 typedef struct {
-	int32_t sem_count;
+	int32_t semCount;
 	bool isBlocked;
 } semaphore;
 
