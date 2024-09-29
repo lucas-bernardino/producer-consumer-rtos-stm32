@@ -1,5 +1,12 @@
 # Produtor/Consumidor em um RTOS utilizando STM32F103
 
+[Objetivos](#objetivos)
+[Implementação do semáforo](#implementação-do-semáforo)
+[Sobre o RTOS utilizado](#sobre-o-rtos-utilizado)
+[Utilização e Visualização](#utilização-e-visualização)
+
+![BluepillStlink](/assets/bluepill_stlink.jpg)
+
 ## Objetivos
 Esse repositório contém a solução para o problema do produtor/consumidor. Esse clássico problema deveria ser implementado em um microcontrolador, STM32F103, utilizando um Real-Time Operating System (RTOS). O RTOS utilizado foi o MInimal Real-time Operating System (MiROS)
 
