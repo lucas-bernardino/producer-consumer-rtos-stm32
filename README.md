@@ -1,8 +1,11 @@
 # Produtor/Consumidor em um RTOS utilizando STM32F103
 
 [Objetivos](#objetivos)
+
 [Implementação do semáforo](#implementação-do-semáforo)
+
 [Sobre o RTOS utilizado](#sobre-o-rtos-utilizado)
+
 [Utilização e Visualização](#utilização-e-visualização)
 
 ![BluepillStlink](/assets/bluepill_stlink.jpg)
